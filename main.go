@@ -52,7 +52,12 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		defer out.Close()
+		defer func() {
+			out.Close()
+			if err := os.Remove(archFilePath); err != nil {
+				log.Printf("Failed to remove archive file: \"%s\".", err)
+			}
+		}()
 
 		_, err = io.Copy(out, resp.Body)
 		if err != nil {
@@ -86,8 +91,8 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		log.Print("Success.")
-		os.Exit(0)
+		log.Println("Successfully installed.")
+		return
 	}
 
 	log.Fatalf("Archive \"%s\" does not have protoc.\n", archFilePath)
