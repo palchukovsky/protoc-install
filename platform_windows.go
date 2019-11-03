@@ -3,6 +3,6 @@
 package main
 
 const (
-	platform      = "win64"
-	binFileInArch = "bin/protoc.exe"
+	platform = "win64"
+	binFile  = "protoc.exe"
 )

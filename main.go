@@ -25,7 +25,7 @@ func main() {
 		log.Fatal("Destination is not set.\n")
 	}
 
-	binFilePath := filepath.Join(*outDir, "protoc")
+	binFilePath := filepath.Join(*outDir, binFile)
 	if _, err := os.Stat(binFilePath); !os.IsNotExist(err) {
 		log.Printf("protoc is already existing (\"%s\").\n", binFilePath)
 		return
@@ -67,8 +67,9 @@ func main() {
 	}
 	defer arch.Close()
 
+	binInsideArchPath := "bin/" + binFile
 	for _, file := range arch.File {
-		if file.Name != binFileInArch {
+		if file.Name != binInsideArchPath {
 			continue
 		}
 		bin, err := os.OpenFile(binFilePath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, file.Mode())
