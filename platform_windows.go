@@ -3,6 +3,9 @@
 package main
 
 const (
-	platform = "win64"
-	binFile  = "protoc.exe"
+	protocPlatform = "win64"
+	protocFile     = "protoc.exe"
+
+	grpcWebPlatform = "windows-x86_64"
+	grpcWebFileExt  = ".exe"
 )

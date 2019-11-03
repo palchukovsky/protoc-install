@@ -3,6 +3,9 @@
 package main
 
 const (
-	platform = "linux-x86_64"
-	binFile  = "protoc"
+	protocPlatform = "linux-x86_64"
+	protocFile     = "protoc"
+
+	grpcWebPlatform = "linux-x86_64"
+	grpcWebFileExt  = ""
 )

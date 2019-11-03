@@ -11,9 +11,10 @@ Downloads and unpacks Protocol Buffers compiler protoc.
 
 ## To run
 ### Arguments
-* -ver: Protocol Buffers compiler version
+* -type: "cli" for protoc or "grpc-web" for gRPC Web protoc plugin
+* -ver: version to install
 * -out: output directory
 ### Example
 ```shell
-    protoc-install -ver 3.10.1 -out bin
+    protoc-install -type cli -ver 3.10.1 -out bin
 ```
